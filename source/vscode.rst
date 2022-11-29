@@ -12,8 +12,11 @@ c_cpp_properties.json
         "configurations": [
             {
                 "name": "Linux",
-                "cStandard": "c11",
-                "intelliSenseMode": "gcc-x64",
+                "defines": [],
+                "cStandard": "gnu11",
+                "cppStandard": "c++14",
+                "compilerPath": "/usr/bin/gcc",
+                "intelliSenseMode": "linux-gcc-x64",
                 "compileCommands": "${workspaceFolder}/compile_commands.json"
             }
         ],
