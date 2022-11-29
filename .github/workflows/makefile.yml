@@ -1,15 +1,5 @@
 name: Makefile CI
 
-inputs:
-  path:
-    description: "Path of the directory containing the static assets."
-    required: true
-    default: "build/html/"
-  retention-days:
-    description: "Duration after which artifact will expire in days."
-    required: false
-    default: "1"
-
 on:
   push:
     branches: [ "master" ]
@@ -34,27 +24,9 @@ jobs:
     - name: make
       run: make html
 
-    - name: Archive artifact
-      shell: sh
-      if: runner.os == 'Linux'
-      run: |
-        for f in $(chmod -c -R +r . | awk '{print substr($3, 2, length($3)-2)}')
-        do
-          echo "::warning::Added read permission to $f"
-        done
-        tar \
-          --dereference --hard-dereference \
-          --directory "$INPUT_PATH" \
-          -cvf "$RUNNER_TEMP/artifact.tar" \
-          --exclude=.git \
-          --exclude=.github \
-          .
-      env:
-        INPUT_PATH: ${{ inputs.path }}
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@main
+    - name: upload pages
+      uses: actions/upload-pages-artifact@v1
       with:
-        name: github-pages
-        path: ${{ runner.temp }}/artifact.tar
-        retention-days: ${{ inputs.retention-days }}
+        path: build/html/
+          
+      
