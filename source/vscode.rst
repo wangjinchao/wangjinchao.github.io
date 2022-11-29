@@ -2,6 +2,9 @@
 vscode
 ======
 
+c_cpp_properties.json
+======================
+
 .. code-block:: json
     :caption: c_cpp_properties.json
 
@@ -67,6 +70,8 @@ vscode
     }
 
 
+settings.json
+======================
 .. code-block:: json
     :caption: settings.json
 
@@ -87,6 +92,8 @@ vscode
         }
     }
 
+tasks.json
+======================
 .. code-block:: json
     :caption: tasks.json
 
