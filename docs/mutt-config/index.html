@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="mutt 配置 # 配置文件 # 编辑并保存 ~/.muttrc
+# ================ IMAP ==================== set imap_user = &#39;name@gmail.com&#39; set imap_pass = &#39;${SECURITY}&#39; set spoolfile = imaps://imap.gmail.com/INBOX set folder = imaps://imap.gmail.com/ set record=&#34;imaps://imap.gmail.com/[Gmail]/Sent Mail&#34; set postponed=&#34;imaps://imap.gmail.com/[Gmail]/Drafts&#34; set mbox=&#34;imaps://imap.gmail.com/[Gmail]/All Mail&#34; # ================ SMTP ==================== set smtp_url = &#34;smtps://name@smtp.gmail.com:465/&#34; set smtp_pass = $imap_pass set ssl_force_tls = yes # Require encrypted connection # ================ Composition ==================== set editor = vim set edit_headers = yes # See the headers when editing set charset = UTF-8 # value of $LANG; also fallback for send_charset # Sender, email address, and sign-off line must match unset use_domain set realname = &#34;name&#34; set from = &#34;name@gmail.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="Mutt Config" />
+<meta property="og:description" content="mutt 配置 # 配置文件 # 编辑并保存 ~/.muttrc
+# ================ IMAP ==================== set imap_user = &#39;name@gmail.com&#39; set imap_pass = &#39;${SECURITY}&#39; set spoolfile = imaps://imap.gmail.com/INBOX set folder = imaps://imap.gmail.com/ set record=&#34;imaps://imap.gmail.com/[Gmail]/Sent Mail&#34; set postponed=&#34;imaps://imap.gmail.com/[Gmail]/Drafts&#34; set mbox=&#34;imaps://imap.gmail.com/[Gmail]/All Mail&#34; # ================ SMTP ==================== set smtp_url = &#34;smtps://name@smtp.gmail.com:465/&#34; set smtp_pass = $imap_pass set ssl_force_tls = yes # Require encrypted connection # ================ Composition ==================== set editor = vim set edit_headers = yes # See the headers when editing set charset = UTF-8 # value of $LANG; also fallback for send_charset # Sender, email address, and sign-off line must match unset use_domain set realname = &#34;name&#34; set from = &#34;name@gmail." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wangjinchao.github.io/docs/mutt-config/" /><meta property="article:section" content="docs" />
+
+
+<title>Mutt Config | 王金超的笔记</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.062348fb0d1f45ee0794adbf89d21b7b923c15da8b43aad849412d13a589239e.js" integrity="sha256-BiNI&#43;w0fRe4HlK2/idIbe5I8FdqLQ6rYSUEtE6WJI54=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>王金超的笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/mutt-config/" class="active">Mutt Config</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Mutt Config</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置文件">配置文件</a></li>
+    <li><a href="#注意事项">注意事项</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="mutt-配置">
+  mutt 配置
+  <a class="anchor" href="#mutt-%e9%85%8d%e7%bd%ae">#</a>
+</h1>
+<h2 id="配置文件">
+  配置文件
+  <a class="anchor" href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6">#</a>
+</h2>
+<p>编辑并保存 <code>~/.muttrc</code></p>
+<pre tabindex="0"><code># ================  IMAP ====================
+set imap_user = &#39;name@gmail.com&#39;
+set imap_pass = &#39;${SECURITY}&#39;
+set spoolfile = imaps://imap.gmail.com/INBOX
+set folder = imaps://imap.gmail.com/
+set record=&#34;imaps://imap.gmail.com/[Gmail]/Sent Mail&#34;
+set postponed=&#34;imaps://imap.gmail.com/[Gmail]/Drafts&#34;
+set mbox=&#34;imaps://imap.gmail.com/[Gmail]/All Mail&#34;
+
+# ================  SMTP  ====================
+set smtp_url = &#34;smtps://name@smtp.gmail.com:465/&#34;
+set smtp_pass = $imap_pass
+set ssl_force_tls = yes # Require encrypted connection
+
+# ================  Composition  ====================
+set editor = vim
+set edit_headers = yes  # See the headers when editing
+set charset = UTF-8     # value of $LANG; also fallback for send_charset
+# Sender, email address, and sign-off line must match
+unset use_domain       
+set realname = &#34;name&#34;
+set from = &#34;name@gmail.com&#34;
+set use_from = yes
+
+
+# cache
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+</code></pre><h2 id="注意事项">
+  注意事项
+  <a class="anchor" href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9">#</a>
+</h2>
+<p>gmail需要配置<a href="https://support.google.com/accounts/answer/185833">app password</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置文件">配置文件</a></li>
+    <li><a href="#注意事项">注意事项</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
